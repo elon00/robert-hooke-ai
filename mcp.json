@@ -1,0 +1,55 @@
+{
+  "mcpServers": {
+    "robert-hooke-ai": {
+      "command": "cargo",
+      "args": [
+        "run",
+        "--release",
+        "--quiet"
+      ],
+      "env": {
+        "RUST_LOG": "info",
+        "TITAN_PROTOCOL": "HOOKE",
+        "TARGET_CHAIN": "Sui",
+        "FIPS_203_LEVEL": "ML-KEM-768",
+        "FIPS_204_LEVEL": "ML-DSA-65"
+      },
+      "tools": [
+        {
+          "name": "calculate_hookean_elastic_restoration",
+          "description": "Computes restoring spring force F = -k x and elastic potential energy U = 1/2 k x^2",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "spring_constant_n_m": {
+                "type": "number"
+              },
+              "displacement_m": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "spring_constant_n_m",
+              "displacement_m"
+            ]
+          }
+        },
+        {
+          "name": "analyze_cork_cell_tessellation",
+          "description": "Measures hexagonal cell wall thickness and packing density in plant cork parenchyma",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "pore_diameter_um": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "pore_diameter_um"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
